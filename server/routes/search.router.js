@@ -8,15 +8,15 @@ router.get("/:search", (req, res) => {
         req.params.search
     );
     const searchTerm = req.params.search;
-
     console.log("searchterm", searchTerm);
+
     axios
         .get(
-            `https://api.magicthegathering.io/v1/cards?name=${searchTerm}`
+            `https://api.magicthegathering.io/v1/cards?name=${searchTerm}&pageSize=3`
         )
 
         .then((response) => {
-            console.log(response.data, "console loging in image router");
+            console.log(response.data, "console loging in search router");
             res.send(response.data);
         })
         .catch((error) => {

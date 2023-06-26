@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage'
 import DeckList from '../DeckList/DeckList'
+import SearchResults from '../SearchResults/SearchResults';
 import './App.css';
 
 function App() {
@@ -75,6 +76,14 @@ function App() {
             path="/search"
           >
             <SearchPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows search else shows LoginPage
+            exact
+            path="/results"
+          >
+            <SearchResults />
           </ProtectedRoute>
 
           <Route
