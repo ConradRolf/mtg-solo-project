@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* searchCards(action) {
     try {
         console.log(action.payload)
-        const searchResponse = yield axios.get('/api/user/search', action.payload);
+        const searchResponse = yield axios.get(`/api/query/${action.payload}`);
         yield put ({type: 'SET_SEARCH', payload: searchResponse.data});
     }
     catch (error) {
