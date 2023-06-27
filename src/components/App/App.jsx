@@ -86,6 +86,14 @@ function App() {
             <SearchResults />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows search else shows LoginPage
+            exact
+            path="/deck"
+          >
+            <DeckList />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
