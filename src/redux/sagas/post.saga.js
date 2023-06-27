@@ -5,6 +5,7 @@ function* addToDeck(action) {
     try {
         console.log(action.payload);
         yield axios.post('/api/deck', action.payload)
+        yield put({type: 'FETCH_DECK'})
 
     } catch (error) {
         console.log('error POSTing', error);

@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
             .then(result => {
                 res.send(result.rows)
             }).catch(err => {
-                console.log('Error in post /Shelf.router', err)
+                console.log('Error in POST /deck.router', err)
                 res.sendStatus(500)
             })
 
@@ -23,5 +23,21 @@ router.post('/', (req, res) => {
     }
 })
 
-
+router.get('/', (req, res) => {
+    if (req.isAuthenticated()) {
+        console.log('is authenticated?', req.isAuthenticated())
+        console.log('user', req.user)
+        console.log('req.body:', req.body);
+        let queryText = `SELECT * FROM "card" WHERE "deck_id" = 1;`
+        pool.query(queryText)
+            .then(result => {
+                res.send(result.rows)
+            }).catch(err => {
+                console.log('Error in GET /deck.router', err)
+                res.sendStatus(500)
+            })
+    } else {
+        res.sendStatus(403)
+    }
+})
 module.exports = router;
