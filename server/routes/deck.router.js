@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         console.log('is authenticated?', req.isAuthenticated())
         console.log('user', req.user)
         console.log('req.body:', req.body);
-        let queryText = `SELECT * FROM "card" WHERE "deck_id" = 1;`
+        let queryText = `SELECT * FROM "card" JOIN "deck" ON "deck"."id" = "card"."deck_id" WHERE "deck_id" = 1`;
         pool.query(queryText)
             .then(result => {
                 res.send(result.rows)
