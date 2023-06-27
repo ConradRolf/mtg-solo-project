@@ -1,4 +1,8 @@
-.carousel-container {
-    max-width: 400px;
+/* .carousel-container {
+    width: 100%;
     margin: auto;
+} */
+
+img{
+    max-width: 400
 }

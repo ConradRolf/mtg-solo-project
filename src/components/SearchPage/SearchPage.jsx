@@ -10,6 +10,10 @@ function SearchPage() {
     const history = useHistory()
     const [search, setSearch] = useState('')
 
+    useEffect(() => {
+        dispatch({ type: 'SEARCH_CARDS', payload: 'Black Lotus' });
+    }, []);
+
     const searchCards = (event) => {
         event.preventDefault();
         dispatch({ type: 'SEARCH_CARDS', payload: search })
@@ -35,11 +39,3 @@ function SearchPage() {
 }
 
 export default SearchPage
-
-{/* <div>
-                {cards.map((card, i) => (
-                    <div key={i}>
-                    <SearchItem card={card} />
-                    </div>
-                ))}
-            </div> */}

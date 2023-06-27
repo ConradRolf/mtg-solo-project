@@ -10,7 +10,6 @@ import '@fontsource/roboto/700.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Carousel from 'react-material-ui-carousel';
 import './SearchResults.css'
 
 
@@ -24,25 +23,48 @@ function SearchResults() {
         history.push('/search')
     }
 
-    return (
-        <>
-            <button onClick={handleBack}>Back to Search</button>
-            <Container fixed>
-                <Typography gutterBottom variant="h5" component="div">
-                    Search Results
-                </Typography>
-                <div className="carousel-container">
-                    <Grid>
-                        {cards.map((card, i) => (
-                            <div key={i}>
-                                <SearchItem card={card} />
-                            </div>
-                        ))}
-                    </Grid>
-                </div>
-            </Container>
-        </>
-    )
-}
+        return (
+            <>
+                <button onClick={handleBack}>Back to Search</button>
+                <Container fixed>
+                    <Typography gutterBottom variant="h5" component="div">
+                        Search Results
+                    </Typography>
+                    <br />
+                    <br />
+                    <div className="carousel-container">
+                        < Grid container spacing={2} >
+                            {cards.map(card  => (
+                                <Grid card xs={12} sm={6} md={4} key={card.multiverseid}>
+                                        <SearchItem card={card} />
+                                </Grid>
+                            ))
+                            }
+                        </Grid >
+                    </div>
+                </Container>
+            </>
+        )
+    }
 
 export default SearchResults
+
+
+
+
+
+    //                      < Card >
+    //                         <CardMedia
+    //                             sx={{ height: 550 }}
+    //                             image={cards[0].imageUrl}
+    //                             title={cards[0].name}
+    //                         />
+    //                         <CardContent>
+    //                             <Typography gutterBottom variant="h5" component="div">
+    //                                 {cards[0].name}
+    //                             </Typography>
+    //                             <Typography varient="body3" color="text.secondary">
+    //                                 {cards[0].flavor}
+    //                             </Typography>
+    //                         </CardContent>
+    //                     </Card >

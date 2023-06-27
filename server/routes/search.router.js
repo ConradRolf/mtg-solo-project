@@ -12,7 +12,7 @@ router.get("/:search", (req, res) => {
 
     axios
         .get(
-            `https://api.magicthegathering.io/v1/cards?name=${searchTerm}&pageSize=3`
+            `https://api.magicthegathering.io/v1/cards?name=${searchTerm}&pageSize=1`
         )
 
         .then((response) => {

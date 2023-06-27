@@ -13,16 +13,31 @@ function SearchItem(props) {
 
     return (
         <>
-            <Card>
+            <Card className="results">
                 <CardMedia
                     sx={{ height: 550 }}
                     image={props.card.imageUrl}
                     title={props.card.name}
                 />
+            </Card>
+            <Card className="results">
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
                         {props.card.name}
                     </Typography>
+                    <br />
+                    <Typography varient="body3" color="text.secondary">
+                        Converted Mana Cost: {props.card.cmc}
+                    </Typography>
+                    <br />
+                    <Typography varient="body3" color="text.secondary">
+                        {props.card.power}/{props.card.toughness}
+                    </Typography>
+                    <br />
+                    <Typography varient="body3" color="text.secondary">
+                        {props.card.text}
+                    </Typography>
+                    <br />
                     <Typography varient="body3" color="text.secondary">
                         {props.card.flavor}
                     </Typography>
@@ -36,19 +51,3 @@ export default SearchItem
 
 // <h4>{props.card.name}</h4>
 // <img src={props.card.imageURL}/>
-
-//  <Card>
-// <CardMedia
-// sx={{ height: 550 }}
-// image={props.card.imageUrl}
-// title={props.card.name}
-// />
-// <CardContent>
-// <Typography gutterBottom variant="h5" component="div">
-//     {props.card.name}
-// </Typography>
-// <Typography varient="body3" color="text.secondary">
-//     {props.card.flavor}
-// </Typography>
-// </CardContent>
-// </Card>
