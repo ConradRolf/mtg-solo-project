@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-router.get("/:search", (req, res) => {
+router.get('/:search', (req, res) => {
     console.log(
         "in server get, and input search term should arrive as req.params.search, which is:",
         req.params.search

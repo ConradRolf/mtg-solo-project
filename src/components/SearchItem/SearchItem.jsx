@@ -8,8 +8,15 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { useDispatch } from 'react-redux';
 
 function SearchItem(props) {
+
+    const dispatch = useDispatch();
+
+    const addToDeck = () => {
+        dispatch({ type: 'ADD_CARD', payload: props.card })
+    }
 
     return (
         <>
@@ -42,6 +49,10 @@ function SearchItem(props) {
                         {props.card.flavor}
                     </Typography>
                 </CardContent>
+                <br />
+                <CardActions>
+                    <Button size="medium" onClick={addToDeck}>Add To Deck</Button>
+                </CardActions>
             </Card>
         </>
     )

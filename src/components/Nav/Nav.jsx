@@ -32,6 +32,10 @@ function Nav() {
               Search
             </Link>
 
+            <Link className="navLink" to="/deck">
+              My Deck
+            </Link>
+
             <Link className="navLink" to="/info">
               Info Page
             </Link>
