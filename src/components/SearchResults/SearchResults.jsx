@@ -23,29 +23,27 @@ function SearchResults() {
         history.push('/search')
     }
 
-        return (
-            <>
-                <button onClick={handleBack}>Back to Search</button>
-                <Container fixed>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Search Results
-                    </Typography>
-                    <br />
-                    <br />
-                    <div className="carousel-container">
-                        < Grid container spacing={2} >
-                            {cards.map(card  => (
-                                <Grid card xs={12} sm={6} md={4} key={card.multiverseid}>
-                                        <SearchItem card={card} />
-                                </Grid>
-                            ))
-                            }
-                        </Grid >
-                    </div>
-                </Container>
-            </>
-        )
-    }
+    return (
+        <>
+            <button onClick={handleBack}>Back to Search</button>
+            <Container fixed>
+                <Typography gutterBottom variant="h5" component="div">
+                    Search Results
+                </Typography>
+                <br />
+                <br />
+                <div className="carousel-container">
+                    < Grid container spacing={2} >
+                        {cards.map(card => (
+                            <SearchItem card={card} />
+                        ))
+                        }
+                    </Grid >
+                </div>
+            </Container>
+        </>
+    )
+}
 
 export default SearchResults
 

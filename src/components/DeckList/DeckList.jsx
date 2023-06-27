@@ -17,7 +17,7 @@ function DeckList() {
 
     return (
         <>
-            {/* <Container fixed>
+            <Container fixed>
                 <Typography gutterBottom variant="h5" component="div">
                     {cards.name}
                 </Typography>
@@ -33,7 +33,7 @@ function DeckList() {
                         }
                     </Grid >
                 </div>
-            </Container> */}
+            </Container>
         </>
     )
 }
