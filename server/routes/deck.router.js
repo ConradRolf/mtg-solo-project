@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
         console.log('is authenticated?', req.isAuthenticated())
         console.log('user', req.user)
         console.log('req.body:', req.body);
-        let queryText = `SELECT * FROM "card" JOIN "deck" ON "deck"."id" = "card"."deck_id" WHERE "deck_id" = 1`;
+        let queryText = `SELECT "card".*, "deck"."name", "deck"."user_id", "deck"."id" AS "deck_payload_id" FROM "card" JOIN "deck" ON "deck"."id" = "card"."deck_id" WHERE "deck_id" = 1`;
         pool.query(queryText)
             .then(result => {
                 res.send(result.rows)
@@ -40,4 +40,26 @@ router.get('/', (req, res) => {
         res.sendStatus(403)
     }
 })
+
+router.delete('/:id', (req, res) => {
+    if (req.isAuthenticated()) {
+        console.log('is authenticated?', req.isAuthenticated())
+        console.log('user', req.user)
+        console.log('req.body:', req.body);
+        console.log('id to delete', req.params.id)
+        const idToDelete = req.params.id
+        let queryText = `DELETE FROM "card" WHERE "card"."id" = ${idToDelete};`
+        pool.query(queryText)
+            .then(result => {
+                res.send(result.rows)
+            }).catch(err => {
+                console.log('Error in POST /deck.router', err)
+                res.sendStatus(500)
+            })
+
+    } else {
+        res.sendStatus(403)
+    }
+})
+
 module.exports = router;

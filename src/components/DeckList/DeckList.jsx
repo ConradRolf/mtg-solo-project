@@ -10,6 +10,9 @@ import '@fontsource/roboto/700.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { Card } from '@mui/material';
+import CardContent from '@mui/material';
+
 
 function DeckList() {
 
@@ -17,16 +20,12 @@ function DeckList() {
 
     return (
         <>
+            <h2>{cards[0].name}</h2>
             <Container fixed>
-                <Typography gutterBottom variant="h5" component="div">
-                    {cards.name}
-                </Typography>
-                <br />
-                <br />
                 <div className="carousel-container">
                     < Grid container spacing={2} >
                         {cards.map(card => (
-                            <Grid card xs={12} sm={6} md={4} key={card.multiverseid}>
+                            <Grid item xs={12} sm={6} md={4} key={card.card_id}>
                                 <DeckItem card={card} />
                             </Grid>
                         ))

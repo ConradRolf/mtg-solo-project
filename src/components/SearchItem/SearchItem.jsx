@@ -22,7 +22,7 @@ function SearchItem(props) {
     return (
         <>
 
-            <Grid item xs={12} sm={6} md={4} key={props.card.multiverseid}>
+            <Grid item xs={12} sm={6} md={4} key={props.card.id}>
                 <Card className="results">
                     <CardMedia
                         sx={{ height: 550 }}
@@ -44,15 +44,15 @@ function SearchItem(props) {
                         </Typography>
                         <br />
                         <Typography varient="body3" color="text.secondary">
-                            {props.card.power}/{props.card.toughness}
-                        </Typography>
-                        <br />
-                        <Typography varient="body3" color="text.secondary">
                             {props.card.text}
                         </Typography>
                         <br />
                         <Typography varient="body3" color="text.secondary">
                             {props.card.flavor}
+                        </Typography>
+                        <br />
+                        <Typography>
+                            https://www.cardkingdom.com/catalog/search?search=header&filter%5Bname%5D=Treebeard+Gracious+Host
                         </Typography>
                     </CardContent>
                     <br />

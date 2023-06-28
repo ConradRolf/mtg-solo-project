@@ -12,14 +12,21 @@ import { useDispatch } from 'react-redux';
 
 function DeckItem(props) {
 
+    const dispatch = useDispatch();
+
+    const handleDelete = () => {
+        dispatch({ type: 'DELETE_CARD', payload: props.card.id })
+    }
+
     return (
         <>
             <Card>
                 <CardMedia
-                    sx={{ height: 350 }}
-                    image={props.card.imageUrl}
+                    sx={{ height: 525 }}
+                    image={props.card.img}
                     title={props.card.card_name}
                 />
+                <Button onClick={handleDelete}>❌</Button>
             </Card>
             {/* <Card className="results">
                 <CardContent>
