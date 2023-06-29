@@ -53,7 +53,27 @@ router.delete('/:id', (req, res) => {
             .then(result => {
                 res.send(result.rows)
             }).catch(err => {
-                console.log('Error in POST /deck.router', err)
+                console.log('Error in DELETE /deck.router', err)
+                res.sendStatus(500)
+            })
+
+    } else {
+        res.sendStatus(403)
+    }
+})
+
+router.put('/', (req, res) => {
+    if (req.isAuthenticated()) {
+        console.log('is authenticated?', req.isAuthenticated())
+        console.log('user', req.user)
+        console.log('req.body in the router >>>>>>>>>>>>>>>>>.', req.body.deckName);
+        const deckName = req.body.deckName
+        let queryText = `UPDATE "deck" SET "name" = '${deckName}' WHERE "deck"."id" = 1;`
+        pool.query(queryText)
+            .then(result => {
+                res.sendStatus(200)
+            }).catch(err => {
+                console.log('Error in PUT /deck.router', err)
                 res.sendStatus(500)
             })
 

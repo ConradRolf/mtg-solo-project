@@ -6,6 +6,7 @@ import searchSaga from './search.saga';
 import postSaga from './post.saga';
 import deckSaga from './deck.saga';
 import deleteSaga from './delete.saga';
+import putSaga from './put.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     postSaga(),
     deckSaga(),
     deleteSaga(),
+    putSaga(),
   ]);
 }

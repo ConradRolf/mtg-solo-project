@@ -17,10 +17,17 @@ import CardContent from '@mui/material';
 function DeckList() {
 
     const cards = useSelector(store => store.deckReducer);
+    const history = useHistory();
+
+    const editPage = () => {
+        history.push('/edit')
+    }
 
     return (
         <>
             <h2>{cards[0].name}</h2>
+            <button onClick={editPage}>Edit Name/Stats</button>
+
             <Container fixed>
                 <div className="carousel-container">
                     < Grid container spacing={2} >
