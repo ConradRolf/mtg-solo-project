@@ -22,7 +22,7 @@ function SearchItem(props) {
     return (
         <>
 
-            <Grid item xs={12} sm={6} md={4} key={props.card.id}>
+            <Grid item xs={12} sm={6} md={4} key={props.card.id} className='card'>
                 <Card className="results">
                     <CardMedia
                         sx={{ height: 550 }}
@@ -32,7 +32,7 @@ function SearchItem(props) {
                 </Card>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} key={props.card.multiverseid}>
+            <Grid item xs={12} sm={6} md={4} key={props.card.multiverseid} className='card'>
                 <Card className="results">
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

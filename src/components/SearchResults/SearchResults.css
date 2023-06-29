@@ -4,5 +4,10 @@
 } */
 
 img{
-    max-width: 450
+    max-width: 450;
+    border: 2px solid black;
+    border-radius: 12px;
 }
+
+
+
