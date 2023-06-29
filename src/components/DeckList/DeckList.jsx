@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import DeckItem from '../DeckItem/DeckItem'
 import '@fontsource/roboto/300.css';
@@ -10,8 +9,8 @@ import '@fontsource/roboto/700.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { Card } from '@mui/material';
-import CardContent from '@mui/material';
+import Button from '@mui/material/Button';
+import './DeckList.css'
 
 
 function DeckList() {
@@ -25,8 +24,7 @@ function DeckList() {
 
     return (
         <>
-            <h2>{cards[0].name}</h2>
-            <button onClick={editPage}>Edit Name/Stats</button>
+            <h2 className='title'>Deck: {cards[0].name} <Button onClick={editPage}>Edit Name/Stats</Button></h2>
 
             <Container fixed>
                 <div className="carousel-container">

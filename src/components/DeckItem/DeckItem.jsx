@@ -18,10 +18,6 @@ function DeckItem(props) {
         dispatch({ type: 'DELETE_CARD', payload: props.card.id })
     }
 
-    // const handleUpdate = () => {
-    //     dispatch({ type: 'UPDATE_DECK', payload: })
-    // }
-
     return (
         <>
             <Card>
