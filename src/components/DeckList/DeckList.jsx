@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 import './DeckList.css'
 
 
@@ -24,8 +25,8 @@ function DeckList() {
 
     return (
         <>
-            <h2 className='title'>Deck: {cards[0].name} <Button onClick={editPage}>Edit Name/Stats</Button></h2>
-
+            <h2 className='title'> Deck: {cards[0].name} </h2>
+            <h2> <Button color='success' variant='contained' onClick={editPage} startIcon={<BorderColorIcon />}>Edit Name</Button></h2>
             <Container fixed>
                 <div className="carousel-container">
                     < Grid container spacing={2} >

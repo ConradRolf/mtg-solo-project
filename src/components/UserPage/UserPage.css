@@ -4,3 +4,21 @@ body {
     background-attachment: fixed;
     background-position: center;
 }
+
+.containerz {
+    padding: 20px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.userButtons {
+    width: 750px;
+    justify-content: center;
+    text-align: center;
+    height: 50px;
+}
+
+.userButtonDiv{
+    justify-content: center;
+    text-align: center;
+}

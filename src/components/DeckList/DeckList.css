@@ -1,8 +1,12 @@
-body{
-    background-color: black;
-    color: aliceblue;
+body {
+    color: rgb(74, 149, 216);
 }
 
-.title{
+.title {
     padding-left: 15px;
+}
+
+h2{
+    text-align: right;
+    margin-right: 25px;
 }
