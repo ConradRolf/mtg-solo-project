@@ -23,18 +23,39 @@ import SearchPage from '../SearchPage/SearchPage'
 import DeckList from '../DeckList/DeckList'
 import SearchResults from '../SearchResults/SearchResults';
 import EditPage from '../EditPage/EditPage';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeOptions } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
 
 function App() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
+  
+  // ThemeOptions = {
+  //   palette: {
+  //     mode: 'dark',
+  //     primary: {
+  //       main: '#158171',
+  //     },
+  //     secondary: {
+  //       main: '#22619e',
+  //     },
+  //   },
+  // };
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
+<>
+
+    {/* <ThemeProvider theme={theme}>
+    <CssBaseline />
+  </ThemeProvider> */}
+
     <Router>
       <div>
         <Nav />
@@ -153,6 +174,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </>
   );
 }
 

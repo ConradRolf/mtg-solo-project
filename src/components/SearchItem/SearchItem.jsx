@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -18,6 +19,16 @@ function SearchItem(props) {
     const addToDeck = () => {
         dispatch({ type: 'ADD_CARD', payload: props.card })
     }
+
+    let ck = (props.card.name)
+    let ckVar = ck.replace(/ /g, '+')
+    let ckLink = { link: `https://www.cardkingdom.com/catalog/search?search=header&filter%5Bname%5D=${ckVar}` }
+
+    let edh = (props.card.name)
+    let edhVar = edh.replace(/ /g, '-')
+    let edhLower = edhVar.toLowerCase()
+    let edhSend = edhLower.replace(/,/g, '')
+    let edhLink = { link: `https://edhrec.com/cards/${edhSend}` }
 
     return (
         <>
@@ -51,13 +62,16 @@ function SearchItem(props) {
                             {props.card.flavor}
                         </Typography>
                         <br />
-                        <Typography>
-                            https://www.cardkingdom.com/catalog/search?search=header&filter%5Bname%5D=Treebeard+Gracious+Host
-                        </Typography>
                     </CardContent>
                     <br />
                     <CardActions>
-                        <Button size="medium" onClick={addToDeck}>Add To Deck</Button>
+                        <Button color='success' onClick={addToDeck} variant='contained'>Add To Deck</Button>
+                        <a href={ckLink.link}>
+                            <Button color='secondary' >Purchase</Button>
+                        </a>
+                        <a href={edhLink.link}>
+                            <Button color='secondary' >More Info</Button>
+                        </a>
                     </CardActions>
                 </Card>
             </Grid>

@@ -9,5 +9,15 @@ img{
     border-radius: 12px;
 }
 
+.results{
+    justify-content: center;
+    text-align: center;
+}
+
+.searchResults{
+    background-color: aliceblue;
+    width: 160px;
+}
+
 
 

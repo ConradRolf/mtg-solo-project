@@ -10,6 +10,8 @@ import '@fontsource/roboto/700.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
+import Button from '@mui/material/Button';
 import './SearchResults.css'
 
 
@@ -25,9 +27,9 @@ function SearchResults() {
 
     return (
         <>
-            <button onClick={handleBack}>Back to Search</button>
+            <Button color='success' endIcon={<ArrowCircleLeftIcon />} onClick={handleBack} variant='contained'></Button>
             <Container fixed>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h5" component="div" className='searchResults'>
                     Search Results
                 </Typography>
                 <br />
