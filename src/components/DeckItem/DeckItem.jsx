@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import Alert from '@mui/material/Alert';
 import { useState } from 'react';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Typography from '@mui/material/Typography';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -27,6 +28,16 @@ function DeckItem(props) {
         setOpen(!open);
     };
 
+    let ck = (props.card.card_name)
+    let ckVar = ck.replace(/ /g, '+')
+    let ckLink = { link: `https://www.cardkingdom.com/catalog/search?search=header&filter%5Bname%5D=${ckVar}` }
+
+    let edh = (props.card.card_name)
+    let edhVar = edh.replace(/ /g, '-')
+    let edhLower = edhVar.toLowerCase()
+    let edhSend = edhLower.replace(/,/g, '')
+    let edhLink = { link: `https://edhrec.com/cards/${edhSend}` }
+
     return (
         <>
             <Card>
@@ -35,7 +46,13 @@ function DeckItem(props) {
                     image={props.card.img}
                     title={props.card.card_name}
                 />
-                <Button onClick={handleClick}>❌ Delete</Button>
+                <a href={ckLink.link} target='_blank'>
+                    <Button color='primary' >Purchase</Button>
+                </a>
+                <a href={edhLink.link} target='_blank'>
+                    <Button color='primary' >More Info</Button>
+                </a>
+                <Button color='error' onClick={handleClick} endIcon={<DeleteForeverIcon />}>Delete</Button>
                 <Dialog open={open} onClose={handleClick}>
                     <Alert severity='warning' action={
                         <Button onClick={handleDelete} color='error' size='small'>

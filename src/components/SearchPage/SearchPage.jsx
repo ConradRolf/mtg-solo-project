@@ -7,6 +7,9 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import FilledInput from '@mui/material/FilledInput';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,6 +19,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './SearchPage.css';
+import { Card } from '@mui/material';
 
 function SearchPage() {
 
@@ -45,39 +49,41 @@ function SearchPage() {
     // Object.values()
     return (
         <>
-            <div className='searchPageDiv'>
-                <h3>Search for Cards here!</h3>
-                <Backdrop
-                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                    open={open}
-                    onClick={handleClose}
-                >
-                    <CircularProgress color="inherit" />
-                </Backdrop>
+            <Card sx={{ width: 275, height: 275, justifyContent: 'center', textAlign: 'center', margin: 'auto', marginTop: 18 }}>
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">Search for Cards here!</Typography>
+                    <Backdrop
+                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                        open={open}
+                        onClick={handleClose}
+                    >
+                        <CircularProgress color="inherit" />
+                    </Backdrop>
 
-                <Box sx={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    margin: '500',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingTop: '25px',
-                    paddingBottom: '175px'
-                }}>
-                    <FormControl sx={{ m: 1 }} variant="filled">
-                        <InputLabel htmlFor="card search bar">Enter Card Name Here</InputLabel>
-                        <FilledInput
-                            id="component-filled"
-                            defaultValue="Composed TextField"
-                            value={search}
-                            onChange={(event) => setSearch(event.target.value)}
-                            color="secondary"
-                            focused
-                        />
-                        <Button color='primary' endIcon={<SavedSearchIcon />} onClick={searchCards} variant='contained'>Search</Button>
-                    </FormControl>
-                </Box >
-            </div>
+                    <Box sx={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        margin: '500',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingTop: '25px',
+                        paddingBottom: '175px'
+                    }}>
+                        <FormControl sx={{ m: 1 }} variant="filled">
+                            <InputLabel htmlFor="card search bar">Enter Card Name Here</InputLabel>
+                            <FilledInput
+                                id="component-filled"
+                                defaultValue="Composed TextField"
+                                value={search}
+                                onChange={(event) => setSearch(event.target.value)}
+                                color="secondary"
+                                focused
+                            />
+                            <Button color='primary' endIcon={<SavedSearchIcon />} onClick={searchCards} variant='contained'>Search</Button>
+                        </FormControl>
+                    </Box >
+                </CardContent>
+            </Card >
         </>
     )
 }

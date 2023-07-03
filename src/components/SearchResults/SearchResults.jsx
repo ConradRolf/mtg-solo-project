@@ -50,7 +50,7 @@ function SearchResults() {
     } else {
         return (
             <>
-                <Button color='primary' endIcon={<ArrowCircleLeftIcon />} onClick={handleBack} variant='contained'></Button>
+                <Button color='primary' endIcon={<ArrowCircleLeftIcon />} onClick={handleBack} variant='contained'>Back</Button>
                 <Container fixed>
                     <Typography gutterBottom variant="h5" component="div" className='searchResults'>
                         Search Results
