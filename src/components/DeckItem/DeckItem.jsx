@@ -40,7 +40,7 @@ function DeckItem(props) {
 
     return (
         <>
-            <Card>
+            <Card className='img'>
                 <CardMedia
                     sx={{ height: 525 }}
                     image={props.card.img}
