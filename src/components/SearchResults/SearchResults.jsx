@@ -9,6 +9,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Dialog from '@mui/material/Dialog';
+import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import Button from '@mui/material/Button';
@@ -25,26 +27,48 @@ function SearchResults() {
         history.push('/search')
     }
 
-    return (
-        <>
-            <Button color='success' endIcon={<ArrowCircleLeftIcon />} onClick={handleBack} variant='contained'></Button>
-            <Container fixed>
-                <Typography gutterBottom variant="h5" component="div" className='searchResults'>
-                    Search Results
-                </Typography>
-                <br />
-                <br />
-                <div className="carousel-container">
-                    < Grid container spacing={2} >
-                        {cards.map(card => (
-                            <SearchItem card={card} />
-                        ))
-                        }
-                    </Grid >
-                </div>
-            </Container>
-        </>
-    )
+    const [checked, setChecked] = useState(true);
+
+    const searchError = () => {
+        history.push('/search')
+    }
+
+    const [open, setOpen] = useState(true);
+
+    if (cards.length < 1) {
+        return (
+            <Dialog open={open}>
+                <Alert severity='error' action={
+                    <Button onClick={searchError} color='primary' size='small'>
+                        OKAY
+                    </Button>
+                }>
+                    We couldn't find anything to match your search, please refine your query and try again
+                </Alert>
+            </Dialog>
+        )
+    } else {
+        return (
+            <>
+                <Button color='primary' endIcon={<ArrowCircleLeftIcon />} onClick={handleBack} variant='contained'></Button>
+                <Container fixed>
+                    <Typography gutterBottom variant="h5" component="div" className='searchResults'>
+                        Search Results
+                    </Typography>
+                    <br />
+                    <br />
+                    <div className="carousel-container">
+                        < Grid container spacing={2} >
+                            {cards.map(card => (
+                                <SearchItem card={card} />
+                            ))
+                            }
+                        </Grid >
+                    </div>
+                </Container>
+            </>
+        )
+    }
 }
 
 export default SearchResults

@@ -1,23 +1,36 @@
 import Card from '@mui/material/Card';
+import React from 'react';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import { useHistory } from 'react-router-dom';
+import Dialog from '@mui/material/Dialog';
+import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 function SearchItem(props) {
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen(!open);
+    };
 
     const addToDeck = () => {
         dispatch({ type: 'ADD_CARD', payload: props.card })
+        setOpen(!open);
     }
 
     let ck = (props.card.name)
@@ -65,11 +78,16 @@ function SearchItem(props) {
                     </CardContent>
                     <br />
                     <CardActions>
-                        <Button color='success' onClick={addToDeck} variant='contained'>Add To Deck</Button>
-                        <a href={ckLink.link}>
+                        <Button color='primary' onClick={addToDeck} variant='contained'>Add To Deck</Button>
+                        <Dialog open={open} onClose={handleClick}>
+                            <Alert severity="success">
+                                Card added to deck!
+                            </Alert>
+                        </Dialog>
+                        <a href={ckLink.link} target='_blank'>
                             <Button color='secondary' >Purchase</Button>
                         </a>
-                        <a href={edhLink.link}>
+                        <a href={edhLink.link} target='_blank'>
                             <Button color='secondary' >More Info</Button>
                         </a>
                     </CardActions>

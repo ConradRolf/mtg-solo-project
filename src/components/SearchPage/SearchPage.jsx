@@ -74,7 +74,7 @@ function SearchPage() {
                             color="secondary"
                             focused
                         />
-                        <Button color='success' endIcon={<SavedSearchIcon />} onClick={searchCards} variant='contained'>Search</Button>
+                        <Button color='primary' endIcon={<SavedSearchIcon />} onClick={searchCards} variant='contained'>Search</Button>
                     </FormControl>
                 </Box >
             </div>

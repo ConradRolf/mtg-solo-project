@@ -46,7 +46,6 @@ function UserPage() {
     <>
       <div className="containerz">
         <h2>Welcome, {user.username}!</h2>
-        <p>Your ID is: {user.id}</p>
       </div>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -56,10 +55,10 @@ function UserPage() {
         <CircularProgress color="inherit" />
       </Backdrop>
       <div className='userButtonDiv'>
-      <Button className='userButtons' endIcon={<SavedSearchIcon />} color='success' onClick={goSearch} variant='contained'>Search For Cards</Button>
+      <Button className='userButtons' endIcon={<SavedSearchIcon />} color='primary' onClick={goSearch} variant='contained'>Search For Cards</Button>
       <br />
       <br />
-      <Button className='userButtons' endIcon={<AutoAwesomeMotionIcon />} color='success' onClick={goDeck} variant='contained'>My Decks</Button>
+      <Button className='userButtons' endIcon={<AutoAwesomeMotionIcon />} color='primary' onClick={goDeck} variant='contained'>My Decks</Button>
       </div>
     </>
   );

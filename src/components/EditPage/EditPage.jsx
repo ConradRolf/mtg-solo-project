@@ -51,7 +51,7 @@ function EditPage() {
                 paddingTop: '175px',
                 paddingBottom: '175px'
             }}>
-                <FormControl fullWidth sx={{ m: 1 }}>
+                <FormControl sx={{ m: 1 }}>
                     <InputLabel htmlFor="outlined-adornment-amount">Deck Name</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
@@ -60,7 +60,7 @@ function EditPage() {
                         value={deckName}
                         onChange={(event) => setDeckName(event.target.value)}
                     />
-                    <Button onClick={putChange}>Submit</Button>
+                    <Button variant='contained' color='primary' onClick={putChange}>Submit</Button>
                 </FormControl>
             </Box >
             <Backdrop

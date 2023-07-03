@@ -1,6 +1,4 @@
-body {
-    color: rgb(74, 149, 216);
-}
+
 
 .title {
     padding-left: 15px;
@@ -9,4 +7,5 @@ body {
 h2{
     text-align: right;
     margin-right: 25px;
+    color: aliceblue;
 }
