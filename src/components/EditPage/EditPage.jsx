@@ -8,6 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
@@ -51,6 +52,7 @@ function EditPage() {
                 paddingTop: '175px',
                 paddingBottom: '175px'
             }}>
+                <Card>
                 <FormControl sx={{ m: 1 }}>
                     <InputLabel htmlFor="outlined-adornment-amount">Deck Name</InputLabel>
                     <OutlinedInput
@@ -60,8 +62,9 @@ function EditPage() {
                         value={deckName}
                         onChange={(event) => setDeckName(event.target.value)}
                     />
-                    <Button variant='contained' color='primary' onClick={putChange}>Submit</Button>
+                    <Button variant='contained' color='primary' onClick={putChange}>Change Deck Name</Button>
                 </FormControl>
+                </Card>
             </Box >
             <Backdrop
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
